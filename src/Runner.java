@@ -1,7 +1,8 @@
 
 public class Runner {
 
-	public static void main(String [] args)
+	// Main line, needs to be put in the main class of every project 
+	public static void main(String [] args) 
 	{
 		
 		Garage garagePark = new Garage(); 
