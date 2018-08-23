@@ -7,6 +7,7 @@ public class Garage {
 	// using this template "ArrayList <Object> nameOfArrayThatYouHaveCreated = new ArrayList <Object>();" the Object is the object eg the class so Vehicle and then we set a new ... that is emptyvia the ()
 	// This array will contain all the objects(Vehicles) in, and this will represent the list of objects(Vehicles) in the garage
 	ArrayList <Vehicle> arrayVehicles = new ArrayList <Vehicle>();
+	ArrayList <Vehicle> arrayCar = new ArrayList <Vehicle>();
 	
 	
 	// a method that allows us to add the different objects to the arrayName
@@ -18,6 +19,9 @@ public class Garage {
 		arrayVehicles.add(new Car (4, "Silver", "Ferrari", 2));
 		arrayVehicles.add(new Van (4, "White", "Fiat", "12ft"));
 		arrayVehicles.add(new MotorBike (4, "Green", "Harley", true));
+		
+		arrayCar.add(new Car (4, "Red", "Toyota", 3));
+		arrayCar.add(new Car (4, "Silver", "Ferrari", 2));
 	}
 	
 	// creating a method that is void so it does not return anything, so we use System.out.println(); for it to print out 
@@ -80,9 +84,13 @@ public class Garage {
 			{
 				
 				//arrayName.get(i) - this will go through the array and it will get that object at the index i
-				//instanceof - 
+				//instanceof - this is seeing if the arrayVehicles at index i of the array will be of type Car (class Car) 
+				
 				if(arrayVehicles.get(i) instanceof Car)
 				{
+					
+					// as in an if statement then if it is of type Car then the ".remove()" will remove (in the brackets) from the array
+					// I believe this is why we go through from the right end such that we are able to remove at an index without having an 'computational error'. 
 					arrayVehicles.remove(i); 
 				}
 			}
@@ -102,13 +110,15 @@ public class Garage {
 				}
 			}
 
-			
 		}
 		
 		return "exit"; 
 	
 	}
 	
+	// Creating a new model to just print out all the vehicles in the Garage (eg arrayVehicles) 
+	// going through the array arrayVehicles and selecting each object in the array and then use sysout to print out 
+	//.getModel() -- this is a GETTER that I created in the class vehicle as I want to be able to find the variable 'model' of every object that is in the class Vehicle (call it from Vehicle)
 	public void printGarage()
 	{
 		for (Vehicle eachVehicle: arrayVehicles)
@@ -117,12 +127,17 @@ public class Garage {
 		}
 	}
 	
+	
+	// This is a method to remove an entry from an array using its index position, using the ".remove(i)" 
 	public String exitIdGarage(int i)
 	{
 		arrayVehicles.remove(i);
 		return "Exit Garage is a go go";
 	}
 
+	// This is a method that I've created to add a new Vehicle into the array arrayVehicles 
+	// when calling this in the main, need to addVehicleToGee(new ClassName(all the variables you want in words)
+	
 	public String addVehicleToGee(Vehicle newVehicle)
 	{
 		arrayVehicles.add(newVehicle);
@@ -130,6 +145,7 @@ public class Garage {
 		
 	}
 	
+	// method to completely remove all the enteries in the array. use the ".removeALL", such that
 	public String emptyGarage()
 	{
 		arrayVehicles.removeAll(arrayVehicles);
